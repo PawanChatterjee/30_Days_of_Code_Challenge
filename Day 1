@@ -1,0 +1,62 @@
+//Day 1/100
+//Problem - Largest Number (Medium)
+//Problem Code on Leetcode - 179
+//Approach - Sorting via Custom Comparator
+//Time Complexity - O(nlogn)
+//Space Complexity - O(n)
+
+//JAVA Code :-
+
+import java.util.*;
+public class largest_number
+{
+    public static String Largest(int[] nums)
+    {
+        String[] arr=new String[nums.length];
+        for(int i=0;i<nums.length;i++)
+        {
+            //arr[i]=String.valueOf(nums[i]);
+            arr[i]=nums[i]+ "";
+            //Alternate Method - arr[i]=nums[i]+ " ";
+        }
+        Arrays.sort(arr,(a,b)->{
+            long n1=Long.parseLong(a+b);
+            long n2=Long.parseLong(b+a);
+            if(n1>n2)
+            {
+                return 1;
+            }
+            else if(n2>n1)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
+        });
+        StringBuilder sb=new StringBuilder("");
+        for(int i=nums.length-1;i>=0;i--)
+        {
+            sb.append(arr[i]);
+        }
+        if(sb.charAt(0)=='0')
+        {
+            return "0";
+        }
+        return sb.toString();
+    }
+    public static void main(String[] args)
+    {
+        Scanner in=new Scanner(System.in);
+        System.out.println("Enter number of elements");
+        int num=in.nextInt();
+        int arr[]=new int[num];
+        System.out.println("Enter array values");
+        for(int i=0;i<num;i++)
+        {
+            arr[i]=in.nextInt();
+        }
+        System.out.println(Largest(arr));
+    }
+}
