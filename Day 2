@@ -1,0 +1,49 @@
+//Day 2/100
+//Problem - Container With Most Water (Medium)
+//Problem Code on Leetcode - 11
+//Approach - Two Pointer Method
+//Time Complexity - O(n)
+
+//JAVA Code :-
+
+import java.util.*;
+public class containing_most_water
+{
+    public static int Most_Water(int[] arr)
+    {
+        int left_pointer=0;
+        int right_pointer=arr.length-1;
+        int max=-1;
+        while(left_pointer < right_pointer)
+        {
+            int left=arr[left_pointer];
+            int right=arr[right_pointer];
+            int pot_max=(Math.min(left,right)*(right_pointer-left_pointer));
+            if(pot_max > max)
+            {
+                max=pot_max;
+            }
+            if(left < right)
+            {
+                left_pointer++;
+            }
+            else{
+                right_pointer--;
+            }
+        }
+        return max;
+    }
+    public static void main(String[] args)
+    {
+        Scanner in=new Scanner(System.in);
+        System.out.println("Enter number of array elements");
+        int num=in.nextInt();
+        int arr[]=new int[num];
+        System.out.println("Enter array elements");
+        for(int i=0;i<num;i++)
+        {
+            arr[i]=in.nextInt();
+        }
+        System.out.println(Most_Water(arr));
+    }
+}
