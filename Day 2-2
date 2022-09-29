@@ -1,0 +1,50 @@
+//Day 2/100
+//Problem - Valid Parentheses (Easy)
+//Problem Code on Leetcode - 20
+//Approach - Using Stack
+//Time Complexity - O(n)
+//Space Complexity - O(n)
+
+//JAVA Code :-
+
+import java.util.*;
+public class valid_parentheses
+{
+    public static boolean parentheses(String s)
+    {
+        if(s.length()%2!=0)
+        {
+            return false;
+        }
+        Stack<Character> stack=new Stack();
+        for(char ch:s.toCharArray())
+        {
+            if(ch=='(' || ch=='{' || ch=='[')
+            {
+                    stack.push(ch);
+            }
+            else if(ch==')' && !stack.isEmpty() && stack.peek()=='(')
+            {
+                stack.pop();
+            }
+            else if(ch=='}' && !stack.isEmpty() && stack.peek()=='{')
+            {
+                stack.pop();
+            }
+            else if(ch==']' && !stack.isEmpty() && stack.peek()=='[')
+            {
+                stack.pop();
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return stack.isEmpty();
+    }
+    public static void main(String[] args)
+    {
+        String s="{[]}";
+        System.out.println(parentheses(s));
+    }
+}
