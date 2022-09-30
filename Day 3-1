@@ -1,0 +1,41 @@
+//Day 3/100
+//Problem - Reverse Integer (Medium)
+//Problem Code on Leetcode - 7
+//Approach - The Long-Established Reversal Method
+//Time Complexity - O(n)
+//Space Complexity - O(1)
+
+//JAVA Code:-
+
+class Solution {
+    public static int reverse(int x) {
+        if(x==0)
+        {
+            return 0;
+        }
+        long reversed=0;
+        boolean negative=false;
+        if(x<0)
+        {
+            negative=true;
+            x=x*(-1);
+        }
+        while(x>0)
+        {
+            reversed=(reversed*10)+(x%10);
+            x=x/10;
+        }
+        if(reversed>Integer.MAX_VALUE || reversed<Integer.MIN_VALUE)
+        {
+            return 0;
+        }
+        return negative?(int)(reversed*(-1)):(int)(reversed);
+    }
+    public static void main(String[] args)
+    {
+      Scanner in=new Scanner(System.in);
+      System.out.println("Enter a number");
+      int n=in.nextInt();
+      System.out.println(reverse(n));
+    }
+}
