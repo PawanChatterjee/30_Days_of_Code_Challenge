@@ -1,0 +1,48 @@
+//Day 5/100
+//Problem - Middle of the Linked List (Easy)
+//Platform - Leetcode
+//Problem Code on Leetcode - 876
+//Approach - Slow Pointer (Takes One Step At a Time) & Fast Pointer (Takes Two Steps At a Time)
+//Time Complexity - O(n)
+//Space Complexity - O(1)
+
+//JAVA Code :-
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode middleNode(ListNode head) {
+        ListNode temp=head;
+        if(temp.next==null)
+        {
+            return temp;
+        }
+        else if(temp.next!=null && temp.next.next==null)
+        {
+            return temp.next;
+        }
+        ListNode slow=head;
+        ListNode fast=head;
+        while(fast.next!=null)
+        {
+            slow=slow.next;
+            if(fast.next.next!=null)
+            {
+                fast=fast.next.next;
+            }
+            else
+            {
+                fast=fast.next;
+            }
+        }
+        return slow;
+    }
+}
