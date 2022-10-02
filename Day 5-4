@@ -1,0 +1,47 @@
+//Day 5/100
+//Problem - Delete the Middle Node of a Linked List (Medium)
+//Platform - Leetcode
+//Problem Code on Leetcode - 2095
+//Approach - Slow Pointer, Fast Pointer & Tail Pointer
+//Time Complexity - O(n)
+//Space Complexity - O(1)
+
+//JAVA Code :-
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode deleteMiddle(ListNode head) {
+        ListNode temp=head;
+        if(temp.next==null)
+        {
+            return null;
+        }
+        else if(temp.next.next==null)
+        {
+            head.next=null;
+            return head;
+        }
+        ListNode slow=head;
+        ListNode fast=head;
+        ListNode tail=new ListNode(-1);
+        tail.next=head;
+        while(fast!=null && fast.next!=null)
+        {
+            slow=slow.next;
+            tail=tail.next;
+            fast=fast.next.next;
+        }
+        tail.next=slow.next;
+        slow.next=null;
+        return head;
+    }
+}
