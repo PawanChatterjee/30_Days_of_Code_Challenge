@@ -1,0 +1,53 @@
+//Day 5/100
+//Problem - K-Diff Pairs in an Array (Medium)
+//Platform - Leetcode
+//Problem Code on Leetcode - 532
+//Approach - Using 2 HashMaps
+//Time Complexity - O(n)
+//Space Complexity - O(n)
+
+//JAVA Code :-
+
+class Solution {
+    public int findPairs(int[] nums, int k) {
+        HashMap<Integer,Integer> map=new HashMap<Integer,Integer>();
+        HashMap<Integer,Integer> map2=new HashMap<Integer,Integer>();
+        int size=nums.length;
+        int count=0;
+        for(int i=0;i<size;i++)
+        {
+            if(map.containsKey(nums[i]))
+            {
+                map.put(nums[i],map.get(nums[i])+1);
+            }
+            else
+            {
+                map.put(nums[i],1);
+            }
+            if(k==0 && map.get(nums[i])>1)
+            {
+                if(!(map2.containsKey(nums[i]) && map2.containsValue(nums[i])))
+                {
+                    count++;
+                    map2.put(nums[i],nums[i]);
+                }
+            }
+        }
+        if(k==0)
+        {
+            return count;
+        }
+        for(int i=0;i<size;i++)
+        {
+            if(map.containsKey(nums[i]+k))
+            {
+                if(!(map2.containsKey(nums[i]) && map2.containsValue(nums[i]+k)))
+                {
+                    count++;
+                    map2.put(nums[i],nums[i]+k);
+                }
+            }
+        }
+        return count;
+    }
+}
