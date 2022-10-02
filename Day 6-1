@@ -1,0 +1,44 @@
+//Day 6/100
+//Problem - Delete a Node in Single Linked List (Easy)
+//Platform - GeeksforGeeks
+//Approach - Using Counter
+//Time Complexity - O(n)
+//Space Complexity - O(1)
+
+//JAVA Code :-
+
+/* Linklist node structure
+class Node
+{
+	int data;
+	Node next;
+	
+	Node(int d)
+	{
+		data = d;
+		next = null;
+	}
+}*/
+/*You are required to complete below method*/
+class GfG
+{
+    Node deleteNode(Node head, int x)
+    {
+	// Your code here	
+	if(x==1)
+        {
+            head=head.next;
+            return head;
+        }
+        Node temp=head;
+        int count=1;
+        while(x-count>1)
+        {
+            temp=temp.next;
+            count++;
+        }
+        temp.next=temp.next.next;
+        return head;
+    }
+}
+
