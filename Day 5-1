@@ -1,0 +1,43 @@
+//Day 5/100
+//Problem - Find A Pair With The Given Difference (Easy)
+//Platform - GeeksforGeeks
+//Approach - Using HashMap
+//Time Complexity - O(n)
+//Space Complexity - O(n)
+
+//JAVA Code :-
+
+class Solution
+{
+    public boolean findPair(int arr[], int size, int n)
+    {
+        HashMap<Integer,Integer> map=new HashMap<Integer,Integer>();
+        for(int i=0;i<size;i++)
+        {
+            if(map.containsKey(arr[i]))
+            {
+                map.put(arr[i],map.get(arr[i])+1);
+            }
+            else
+            {
+            map.put(arr[i],1);
+            }   
+            if(n==0 && map.get(arr[i])>1)
+            {
+                return true;
+            }
+        }
+        if(n==0)
+        {
+            return false;
+        }
+        for(int i=0;i<size;i++)
+        {
+            if(map.containsKey(arr[i]+n))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+}
