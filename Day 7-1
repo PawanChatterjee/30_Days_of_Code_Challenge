@@ -1,0 +1,34 @@
+//Day 7/100
+//Problem - Second Largest Digit in a String (Easy)
+//Platform - Leetcode
+//Problem Code on Leetcode - 1796
+//Approach - Max and Second Max Pointers
+//Time Complexity - O(n)
+//Space Complexity - O(1)
+
+//JAVA Code :-
+
+class Solution {
+    public int secondHighest(String s) {
+       int max=-1;
+       int second_max=-1; 
+        for(int i=0;i<s.length();i++)
+        {
+            char ch=s.charAt(i);
+            if(Character.isDigit(ch))
+            {
+                int num=Character.getNumericValue(ch);
+                if(num>max)
+                {
+                    second_max=max;
+                    max=num;
+                }
+                else if(num<max && num>second_max)
+                {
+                    second_max=num;
+                }
+            }
+        }
+        return second_max;
+    }
+}
