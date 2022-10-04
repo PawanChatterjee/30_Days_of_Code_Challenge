@@ -11,7 +11,6 @@
 class Solution {
     public int lengthOfLastWord(String s) {
         int word=0;
-        s=" "+s;
         int finalL=0;
         int length=s.length();
         for(int i=length-1;i>=0;i--)
@@ -30,6 +29,6 @@ class Solution {
                 }
             }
         }
-        return 0;
+        return word;
     }
 }
