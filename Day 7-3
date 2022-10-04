@@ -1,0 +1,25 @@
+//Day 7/100
+//Problem - Minimize the sum of product (Easy)
+//Platform - GeeksforGeeks
+//Approach - Sorting Both Arrays and Then Multiplying The Minimum Number From The 1st Array With The Maximum Number From The 2nd Array.
+//Time Complexity - O(nlogn)
+//Space Complexity - O(1)
+
+//JAVA Code :-
+
+class Solution {
+
+    public long minValue(long a[], long b[], long n) 
+    {
+        // Your code goes here
+        long sum=0;
+        int length=(int)n-1;
+        Arrays.sort(a);
+        Arrays.sort(b);
+        for(int i=0;i<=length;i++)
+        {
+            sum=sum+(a[i]*b[length-i]);
+        }
+        return sum;
+    }
+}
