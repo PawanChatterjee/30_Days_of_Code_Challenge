@@ -1,0 +1,35 @@
+//Day 7/100
+//Problem - Length of Last Word (Easy)
+//Platform - Leetcode
+//Problem Code on Leetcode - 58
+//Approach - Traversing the String In The Reverse Order and Returning The Length Of The First Encountered Word
+//Time Complexity - O(n)
+//Space Complexity - O(1)
+
+//JAVA Code :-
+
+class Solution {
+    public int lengthOfLastWord(String s) {
+        int word=0;
+        s=" "+s;
+        int finalL=0;
+        int length=s.length();
+        for(int i=length-1;i>=0;i--)
+        {
+            char ch=s.charAt(i);
+            if(ch!=' ')
+            {
+                word++;
+            }
+            else
+            {
+                if(word!=0)
+                {
+                finalL=word;
+                return finalL;
+                }
+            }
+        }
+        return 0;
+    }
+}
