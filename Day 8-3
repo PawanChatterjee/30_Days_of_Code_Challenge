@@ -1,0 +1,46 @@
+//Day 8/100
+//Problem - Happy Number (Easy)
+//Platform - Leetcode
+//Problem Code on Leetcode - 202
+//Approach - Using HashSet
+
+//JAVA Code :-
+
+class Solution {
+    public boolean isHappy(int n) {
+       if(n==0)
+        {
+            return false;
+        }
+        else if(n==1)
+        {
+            return true;
+        }
+        HashSet<Integer> set=new HashSet<Integer>();
+        while(n>0)
+        {
+            int product=0;
+            int no=n;
+            while(no>0)
+            {
+                int d=no%10;
+                product=product+(d*d);
+                no=no/10;
+            }
+            if(product==1)
+            {
+                return true;
+            }
+            else if(set.contains(product))
+            {
+                return false;
+            }
+            else
+            {
+                set.add(product);
+                n=product;
+            }
+        }
+        return false;
+    }
+}
