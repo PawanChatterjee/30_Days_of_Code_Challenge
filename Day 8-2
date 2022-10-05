@@ -1,0 +1,37 @@
+//Day 8/100
+//Problem - Search a 2D Matrix (Medium)
+//Platform - Leetcode
+//Problem Code on Leetcode - 74
+//Approach - Checking Border Elements First, Checking Columns Later
+//Time Complexity - O(m*n)
+//Space Complexity - O(1)
+
+//JAVA Code :-
+
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        int rows=matrix.length;
+        int cols=matrix[0].length;
+        int start=0;
+        int end=cols-1;
+        while(start<rows)
+        {
+            if(matrix[start][0]<=target && matrix[start][end]>=target)
+            {
+                for(int j=0;j<=end;j++)
+                {
+                    if(matrix[start][j]==target)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            else
+            {
+                start++;
+            }
+        }
+        return false;
+    }
+}
