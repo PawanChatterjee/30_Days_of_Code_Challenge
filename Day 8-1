@@ -1,0 +1,21 @@
+//Day 8/100
+//Problem - Missing Number in Array (Easy)
+//Platform - GeeksforGeeks
+//Approach - Using Mathematical Formula - Sum of Integers Till n = (n*(n+1)/2)
+//Time Complexity - O(n)
+//Space Complexity -O(1)
+
+//JAVA Code :-
+
+class Solution {
+    int MissingNumber(int array[], int n) {
+        // Your Code Here
+        int sum=(n*(n+1))/2;
+        int curr_sum=0;
+        for(int i=0;i<n-1;i++)
+        {
+            curr_sum=curr_sum+array[i];
+        }
+        return sum-curr_sum;
+    }
+}
