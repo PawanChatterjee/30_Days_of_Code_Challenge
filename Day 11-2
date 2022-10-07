@@ -1,0 +1,43 @@
+//Day 11/100
+//Problem - Find Pivot Index (Easy)
+//Platform - Leetcode
+//Problem Code on Leetcode - 724
+//Approach - Using Left Sum and Right Sum Concept
+//Time Complexity - O(n)
+//Space Complexity - O(1)
+
+//JAVA Code :-
+
+class Solution {
+    public int pivotIndex(int[] nums) {
+        if(nums.length==0)
+        {
+            return -1;
+        }
+        if(nums.length==1)
+        {
+            return 0;
+        }
+        int curr=0;
+        int left_sum=0;
+        int right_sum=0;
+        for(int i=1;i<nums.length;i++)
+        {
+            right_sum=right_sum+nums[i];
+        }
+        while(curr<nums.length-1)
+        {
+            if(left_sum==right_sum)
+            {
+                return curr;
+            }
+            else
+            {
+                left_sum+=nums[curr];
+                curr=curr+1;
+                right_sum=right_sum-nums[curr];
+            }
+        }
+        return left_sum==right_sum?curr:-1;
+    }
+}
