@@ -1,0 +1,55 @@
+//Day 10/100
+//Problem - Search in Rotated Sorted Array (Medium)
+//Platform - Leetcode
+//Problem Code on Leetcode - 33
+//Approach - Using Modified Binary Search
+//Time Complexity - O(log n)
+//Space Complexity - O(1)
+
+//JAVA Code :-
+
+class Solution {
+    public int search(int[] nums, int target) {
+        int low=0;
+        int high=nums.length-1;
+        while(low<=high)
+        {
+            if(nums[low]==target)
+            {
+                return low;
+            }
+            if(nums[high]==target)
+            {
+                return high;
+            }
+            int mid=low+(high-low)/2;
+            if(nums[mid]==target)
+            {
+                return mid;
+            }
+            if(nums[low]<nums[mid]) //Left Section is Sorted
+            {
+                if(nums[low]<=target && nums[mid]>target)
+                {
+                    high=mid-1;
+                }
+                else
+                {
+                    low=mid+1;
+                }
+            }
+            else //Right Section is Sorted
+            {
+                if(nums[mid]<target && nums[high]>=target)
+                {
+                    low=mid+1;
+                }
+                else
+                {
+                    high=mid-1;
+                }
+            }
+        }
+        return -1;
+    }
+}
