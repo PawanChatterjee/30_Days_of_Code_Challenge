@@ -1,0 +1,47 @@
+//Day 11/100
+//Problem - Rotate Image (Medium)
+//Platform - Leetcode
+//Problem Code on Leetcode - 48
+//Approach - Step 1 : Transpose, Step 2 : Mirror Imaging
+//Time Complexity - O(n*n)
+//Space Complexity - O(1)
+
+//JAVA Code :-
+
+class Solution {
+    public void rotate(int[][] matrix) {
+        // Transpose of the Matrix
+        int rows=matrix.length;
+        int cols=rows;
+        for(int curr_row=0;curr_row<rows;curr_row++)
+        {
+            for(int curr_col=0;curr_col<cols;curr_col++)
+            {
+                if(curr_col>curr_row)
+                {
+                    int temp=matrix[curr_row][curr_col];
+                    matrix[curr_row][curr_col]=matrix[curr_col][curr_row];
+                    matrix[curr_col][curr_row]=temp;
+                }
+            }
+        }
+        // Transpose of the Matrix
+        // Mirror Imaging
+        int left_pointer=0;
+        int right_pointer=matrix.length-1;
+        for(int row=0;row<matrix.length;row++)
+        {
+            while(left_pointer<right_pointer)
+            {
+                int temp=matrix[row][left_pointer];
+                matrix[row][left_pointer]=matrix[row][right_pointer];
+                matrix[row][right_pointer]=temp;
+                left_pointer++;
+                right_pointer--;
+            }
+            left_pointer=0;
+            right_pointer=matrix.length-1;
+        }
+        // Mirror Imaging
+    }
+}
