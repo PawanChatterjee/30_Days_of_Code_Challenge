@@ -1,0 +1,45 @@
+//Day 12/100
+//Problem - Number of Islands (Medium)
+//Platform - Leetcode
+//Problem Code on Leetcode - 200
+//Approach - Using Depth First Search
+//Time Complexity - O(m*n)
+//Space Complexity - O(m*n) - Worst Case (If All Matrix Elements Represent 1(Land))
+
+//JAVA Code :-
+
+class Solution {
+    public int numIslands(char[][] grid) {
+        if(grid.length==0)
+        {
+            return 0;
+        }
+        int rows=grid.length;
+        int cols=grid[0].length;
+        int numberOfIslands=0;
+        for(int i=0;i<rows;i++)
+        {
+            for(int j=0;j<cols;j++)
+            {
+                if(grid[i][j]=='1')
+                {
+                    markIsland(grid,i,j,rows,cols);
+                    numberOfIslands++;
+                }
+            }
+        }
+        return numberOfIslands;
+    }
+    public static void markIsland(char[][] matrix,int x,int y,int rows,int cols)
+    {
+        if(x<0 || y<0 || x>=rows || y>=cols || matrix[x][y]!='1')
+        {
+            return;
+        }
+        matrix[x][y]='2';
+        markIsland(matrix,x-1,y,rows,cols);
+        markIsland(matrix,x,y-1,rows,cols);
+        markIsland(matrix,x+1,y,rows,cols);
+        markIsland(matrix,x,y+1,rows,cols);
+    }
+}
