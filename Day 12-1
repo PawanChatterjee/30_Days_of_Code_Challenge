@@ -1,0 +1,43 @@
+//Day 12/100
+//Problem - Count Primes (Medium)
+//Platform - Leetcode
+//Problem Code on Leetcode - 204
+//Approach - Using Sieve of Eratosthenes
+//Time Complexity - O(n)
+//Space Complexity - O(n)
+
+//JAVA Code :-
+
+class Solution {
+    public int countPrimes(int n) {
+        int count=0;
+        //Using Sieve of Eratosthenes
+        if(n==0 || n==1 || n==2)
+        {
+            return 0;
+        }
+        boolean[] prime=new boolean[n];
+        for(int i=2;i<n;i++)
+        {
+            prime[i]=true;
+        }
+        for(int p=2;p*p<n;p++)
+        {
+            if(prime[p]==true)
+            {
+                for(int i=p*2;i<n;i+=p)
+                {
+                    prime[i]=false;
+                }
+            }
+        }
+        for(int i=2;i<n;i++)
+        {
+            if(prime[i]==true)
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+}
