@@ -10,7 +10,7 @@ Problems Solved So Far :-
 
 Easy : 20
 
-Medium : 13
+Medium : 14
 
 Hard : 0
 
