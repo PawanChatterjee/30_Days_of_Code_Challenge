@@ -1,0 +1,59 @@
+//Day 14/100
+//Problem - Maximum Product of Three Numbers (Easy)
+//Platform - Leetcode
+//Problem Code on Leetcode - 628
+//Approach - Determing Max, Second_Max, Third_Max, Min and Second_Min Integers In The Array.
+//Time Complexity - O(n)
+//Space Complexity - O(1)
+
+//JAVA Code :-
+
+class Solution {
+    public int maximumProduct(int[] nums) {
+        int product_1=1;
+        if(nums.length==3)
+        {
+            for(int i=0;i<3;i++)
+            {
+                product_1=product_1*nums[i];
+            }
+            return product_1;
+        }
+        int product_2=1;
+        int max=Integer.MIN_VALUE;
+        int second_max=Integer.MIN_VALUE;
+        int third_max=Integer.MIN_VALUE;
+        int min=Integer.MAX_VALUE;
+        int second_min=Integer.MAX_VALUE;
+        for(int i=0;i<nums.length;i++)
+        {
+            if(nums[i]>max)
+            {
+                third_max=second_max;
+                second_max=max;
+                max=nums[i];
+            }
+            else if(nums[i]<=max && nums[i]>=second_max)
+            {
+                third_max=second_max;
+                second_max=nums[i];
+            }
+            else if(nums[i]<=second_max && nums[i]>=third_max)
+            {
+                third_max=nums[i];
+            }
+            if(nums[i]<min)
+            {
+                second_min=min;
+                min=nums[i];
+            }
+            else if(nums[i]>=min && nums[i]<=second_min)
+            {
+                second_min=nums[i];
+            }
+        }
+        product_1=max*second_max*third_max;
+        product_2=min*second_min*max;
+        return (product_1>product_2)?product_1:product_2;
+    }
+}
