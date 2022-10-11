@@ -1,0 +1,26 @@
+//Day 14/100
+//Problem - Remove All Duplicates From a Given String (Easy)
+//Platform - GeeksforGeeks
+//Approach - Using HashSet
+//Time Complexity - O(n)
+//Space Complexity - O(n)
+
+//JAVA Code :-
+
+class Solution {
+    String removeDuplicates(String str) {
+        // code here
+        HashSet<Character> set=new HashSet<Character>();
+        String f="";
+        for(int i=0;i<str.length();i++)
+        {
+            char ch=str.charAt(i);
+            if(!(set.contains(ch)))
+            {
+                f=f+ch;
+                set.add(ch);
+            }
+        }
+        return f;
+    }
+}
