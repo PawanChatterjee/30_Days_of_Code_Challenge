@@ -2,7 +2,7 @@
 //Problem - Maximum Product of Three Numbers (Easy)
 //Platform - Leetcode
 //Problem Code on Leetcode - 628
-//Approach - Determing Max, Second_Max, Third_Max, Min and Second_Min Integers In The Array.
+//Approach - Determining Max, Second_Max, Third_Max, Min and Second_Min Integers In The Array.
 //Time Complexity - O(n)
 //Space Complexity - O(1)
 
