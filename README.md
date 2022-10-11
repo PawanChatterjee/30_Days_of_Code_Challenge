@@ -6,4 +6,10 @@ My Leetcode Profile : https://leetcode.com/pawan_chatterjee/
  
 My LinkedIn Profile : https://www.linkedin.com/in/pawan-chatterjee-522534202/
 
+Problems Solved So Far :-
+
+Easy :
+Medium :
+Hard :
+
 Happy Coding!
