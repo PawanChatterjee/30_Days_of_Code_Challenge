@@ -12,6 +12,6 @@ Easy : 20
 
 Medium : 13
 
-Hard :
+Hard : 0
 
 Happy Coding!
