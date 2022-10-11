@@ -8,8 +8,10 @@ My LinkedIn Profile : https://www.linkedin.com/in/pawan-chatterjee-522534202/
 
 Problems Solved So Far :-
 
-Easy :
-Medium :
+Easy : 20
+
+Medium : 13
+
 Hard :
 
 Happy Coding!
