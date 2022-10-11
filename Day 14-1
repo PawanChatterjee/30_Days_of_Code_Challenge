@@ -1,0 +1,15 @@
+//Day 14/100
+//Problem - Find the Index of the First Occurrence in a String (Medium)
+//Platform - Leetcode
+//Problem Code on Leetcode - 28
+//Approach - Using .indexOf Function
+//Time Complexity - O(n)
+//Space Complexity - O(1)
+
+//JAVA Code :-
+
+class Solution {
+    public int strStr(String haystack, String needle) {
+        return haystack.indexOf(needle);
+    }
+}
