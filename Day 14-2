@@ -1,0 +1,35 @@
+//Day 14/100
+//Problem - Reverse Words in a String (Medium)
+//Platform - Leetcode
+//Problem Code on Leetcode - 151
+//Approach - Using Character Array
+//Time Complexity - O(n)
+//Space Complexity - O(n)
+
+//JAVA Code :-
+
+class Solution {
+    public String reverseWords(String s) {
+        String rev="";
+        String w="";
+        s=s+" ";
+        char arr[]=s.toCharArray();
+        for(int i=0;i<arr.length;i++)
+        {
+            char ch=arr[i];
+            if(ch!=' ')
+            {
+                w=w+ch;
+            }
+            else
+            {
+                if(w!="")
+                {
+                rev=" "+w+rev;
+                w="";
+                }
+            }
+        }
+        return rev.substring(1,rev.length());
+    }
+}
