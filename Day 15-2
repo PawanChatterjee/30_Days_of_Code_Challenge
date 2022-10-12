@@ -1,0 +1,40 @@
+//Day 15/100
+//Problem - Convert Binary Number in a Linked List to Integer (Easy)
+//Platform - Leetcode
+//Problem Code on Leetcode - 1290
+//Approach - Store Linked List Values In A String and Then Multiplying Each Value With Two Raised To The Power i (index).
+//Time Complexity - O(n)
+//Space Complexity - O(1)
+
+//JAVA Code :-
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public int getDecimalValue(ListNode head) {
+        int int_val=0;
+        String w="";
+        while(head!=null)
+        {
+            w=head.val+w;
+            head=head.next;
+        }
+        for(int i=0;i<w.length();i++)
+        {
+            char ch=w.charAt(i);
+            if(ch=='1')
+            {
+                int_val=int_val+(int)Math.pow(2,i)*Character.getNumericValue(ch);
+            }
+        }
+        return int_val;
+    }
+}
