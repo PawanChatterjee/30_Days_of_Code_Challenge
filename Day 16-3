@@ -1,0 +1,44 @@
+//Day 16/100
+//Problem - Check If Two Arrays Are Equal Or Not (Basic)
+//Platform - GeeksforGeeks
+//Approach - Using 2 HashMaps
+//Time Complexity - O(n)
+//Space Complexity - O(n)
+
+//JAVA Code :-
+
+class Solution{
+    //Function to check if two arrays are equal or not.
+    public static boolean check(long A[],long B[],int N)
+    {
+        HashMap<Long,Integer> map1=new HashMap<Long,Integer>();
+        HashMap<Long,Integer> map2=new HashMap<Long,Integer>();
+        for(int i=0;i<N;i++)
+        {
+            if(map1.containsKey(A[i]))
+            {
+                map1.put(A[i],map1.get(A[i])+1);
+            }
+            else
+            {
+                map1.put(A[i],1);
+            }
+            if(map2.containsKey(B[i]))
+            {
+                map2.put(B[i],map2.get(B[i])+1);
+            }
+            else
+            {
+                map2.put(B[i],1);
+            }
+        }
+        for(int i=0;i<N;i++)
+        {
+            if(!(map1.containsKey(B[i]) && map1.get(B[i])==map2.get(B[i])))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}
