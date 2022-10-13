@@ -8,7 +8,7 @@ My LinkedIn Profile : https://www.linkedin.com/in/pawan-chatterjee-522534202/
 
 Problems Solved So Far :-
 
-Easy : 25
+Easy : 27
 
 Medium : 15
 
