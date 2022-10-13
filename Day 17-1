@@ -1,0 +1,36 @@
+//Day 17/100
+//Problem - Unique Number Of Occurrences (Easy)
+//Platform - Leetcode
+//Problem Code on Leetcode - 1207
+//Approach - Using Arrays.sort() Function To Sort The Array and Using A HashSet To Store and Check Frequencies
+//Time Complexity - O(nlogn)
+//Space Complexity - O(n)
+
+//JAVA Code :-
+
+class Solution {
+    public boolean uniqueOccurrences(int[] arr) {
+        Arrays.sort(arr);
+        int val=arr[0];
+        int frequency=0;
+        HashSet<Integer> set=new HashSet();
+        for(int i=0;i<arr.length;i++)
+        {
+            if(val==arr[i])
+            {
+                frequency++;
+            }
+            else
+            {
+                if(set.contains(frequency))
+                {
+                    return false;
+                }
+                set.add(frequency);
+                val=arr[i];
+                frequency=1;
+            }
+        }
+        return set.contains(frequency)?false:true;
+    }
+}
