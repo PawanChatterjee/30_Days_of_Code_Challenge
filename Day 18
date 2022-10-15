@@ -1,0 +1,37 @@
+//Day 18/100
+//Problem - Intersection of Two Arrays (Easy)
+//Platform - Leetcode
+//Problem Code on Leetcode - 349
+//Approach - Using HashSet and Iterator
+//Time Complexity - O(n)
+//Space Complexity - O(n)
+
+//JAVA Code :-
+
+class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+        HashSet<Integer> set=new HashSet();
+        HashSet<Integer> set2=new HashSet();
+        int count=0;
+        int temp=0;
+        for(int i=0;i<nums1.length;i++)
+        {
+            set.add(nums1[i]);
+        }
+        for(int i=0;i<nums2.length;i++)
+        {
+            if(set.contains(nums2[i]) && !(set2.contains(nums2[i])))
+            {
+                set2.add(nums2[i]);
+                count++;
+            }
+        }
+        Iterator<Integer> i=set2.iterator();
+        int arr[]=new int[count];
+        while(i.hasNext())
+        {
+            arr[temp++]=i.next();
+        }
+        return arr;
+    }
+}
