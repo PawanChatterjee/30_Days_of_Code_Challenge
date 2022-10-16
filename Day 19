@@ -1,0 +1,55 @@
+//Day 19/100
+//Problem - Special Positions in a Binary Matrix (Easy)
+//Platform - Leetcode
+//Problem Code on Leetcode - 1582
+//Approach - Naive Approach 
+//Time Complexity - O(mn(m+n))
+//Space Complexity - O(1)
+
+//JAVA Code :-
+
+class Solution {
+    public int numSpecial(int[][] mat) {
+        boolean marker=false;
+        int temp=0;
+        int special=0;
+        for(int i=0;i<mat.length;i++)
+        {
+            for(int j=0;j<mat[0].length;j++)
+            {
+                if(mat[i][j]==1)
+                {
+                    while(temp<mat.length)
+                    {
+                        if(temp!=i && mat[temp][j]!=0)
+                        {
+                            marker=true;
+                        }
+                          temp++;
+                    }
+                        temp=0;
+                    if(marker==true)
+                    {
+                        marker=false;
+                        continue;
+                    }
+                    while(temp<mat[0].length)
+                    {
+                        if(temp!=j && mat[i][temp]!=0)
+                        {
+                            marker=true;
+                        }
+                          temp++;
+                    }
+                    temp=0;
+                    if(marker==false)
+                    {
+                        special++;
+                    }
+                    marker=false;
+                }
+            }
+        }
+        return special;
+    }
+}
