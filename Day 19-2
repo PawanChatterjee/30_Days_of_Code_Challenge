@@ -1,0 +1,20 @@
+//Day 19/100
+//Problem - Single Number (Easy)
+//Platform - Leetcode
+//Problem Code on Leetcode - 136
+//Approach - Using XOR Properties
+//Time Complexity - O(n)
+//Space Complexity - O(1)
+
+//JAVA Code :-
+
+class Solution {
+    public int singleNumber(int[] nums) {
+        int xor=0;
+        for(int i=0;i<nums.length;i++)
+        {
+            xor=xor^nums[i];
+        }
+        return xor;
+    }
+}
