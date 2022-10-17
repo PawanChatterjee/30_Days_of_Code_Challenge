@@ -1,0 +1,27 @@
+//Day 20/100
+//Problem - Find Smallest Letter Greater Than Target (Easy)
+//Platform - Leetcode
+//Problem Code on Leetcode - 744
+//Time Complexity - O(n)
+//Space Complexity - O(1)
+
+//JAVA Code :-
+
+class Solution {
+    public char nextGreatestLetter(char[] letters, char target) {
+        int min=Integer.MAX_VALUE;
+        char min_char=' ';
+        for(int i=0;i<letters.length;i++)
+        {
+            if((int)letters[i] > (int)target)
+            {
+                if(min > (int)letters[i] - (int)target)
+                {
+                    min = (int)letters[i] - (int)target;
+                    min_char = letters[i];
+                }
+            }
+        }
+        return (min_char!=' ')?min_char:letters[0];
+    }
+}
