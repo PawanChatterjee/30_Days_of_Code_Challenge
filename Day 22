@@ -1,0 +1,35 @@
+//Day 22/100
+//Problem - Maximum Meetings in One Room (Medium)
+//Platform - GeeksforGeeks
+//Time Complexity - O(nlogn)
+//Space Complexity - O(n)
+
+//JAVA Code :-
+
+class Solution {
+    public static ArrayList<Integer> maxMeetings(int N, int[] S, int[] F) {
+        ArrayList<Integer> result=new ArrayList<>();
+        int arr[][]=new int[N][3];
+        // 2D Array To Store Index, Starting Time, Ending Time
+        for(int i=0;i<N;i++)
+        {
+            arr[i][0]=i+1;
+            arr[i][1]=S[i];
+            arr[i][2]=F[i];
+        }
+        Arrays.sort(arr,Comparator.comparingInt(o->o[2]));
+        int r=arr[0][2];
+        result.add(arr[0][0]);
+        for(int i=1;i<N;i++)
+        {
+            if(arr[i][1]>r)
+            {
+                result.add(arr[i][0]);
+                r=arr[i][2];
+            }
+        }
+        Collections.sort(result);
+        return result;
+    }
+}
+        
