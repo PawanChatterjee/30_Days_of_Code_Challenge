@@ -1,1 +1,39 @@
-//
+//Day 23/100
+//Problem - Candy (Hard)
+//Platform - Leetcode
+//Problem Code on Leetcode - 135
+//Approach - Traversing The Ratings Array 2 Times, Once From The Front and The Latter From The Back While Incrementing Number of Candies In A New Array Accordingly.
+//Time Complexity - O(n)
+//Space Complexity - O(n)
+
+//JAVA Code :-
+
+class Solution {
+    public int candy(int[] ratings) {
+        int arr[]=new int[ratings.length];
+        for(int i=0;i<arr.length;i++)
+        {
+            arr[i]=1;
+        }
+        int candies=0;
+        for(int i=0;i<ratings.length-1;i++)
+        {
+            if(ratings[i]<ratings[i+1])
+            {
+                arr[i+1]=arr[i]+1;
+            }
+        }
+        for(int i=ratings.length-2;i>=0;i--)
+        {
+            if(ratings[i]>ratings[i+1] && arr[i]<=arr[i+1])
+            {
+                arr[i]=arr[i+1]+1;
+            }
+        }
+        for(int a:arr)
+        {
+            candies+=a;
+        }
+        return candies;
+    }
+}
