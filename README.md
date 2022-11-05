@@ -10,8 +10,8 @@ Problems Solved So Far :-
 
 Easy : 33
 
-Medium : 17
+Medium : 18
 
-Hard : 0
+Hard : 1
 
 Happy Coding!
