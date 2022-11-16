@@ -1,0 +1,33 @@
+//Day 24/100
+//Problem - Flood Fill Algorithm (Medium)
+//Platform - GeeksforGeeks
+//Approach - Using DFS (Depth First Search)
+//Time Complexity - O(n*m) [Where n=Number of Rows, m=Number of Columns]
+//Space Complexity - O(1) 
+
+//JAVA Code:-
+
+class Solution
+{
+    public int[][] floodFill(int[][] image, int sr, int sc, int newColor)
+    {
+        // Code here 
+        if(image[sr][sc]!=newColor)
+        {
+        transition(image,sr,sc,image.length,image[0].length,newColor,image[sr][sc]);
+        }
+        return image;
+    }
+    public static void transition(int[][]image, int sr,int sc,int rows,int cols, int newColor,int value)
+    {
+        if(sr<0||sc<0||sr>=rows||sc>=cols||image[sr][sc]!=value)
+        {
+            return;
+        }
+        image[sr][sc]=newColor;
+        transition(image,sr+1,sc,rows,cols,newColor,value);
+        transition(image,sr-1,sc,rows,cols,newColor,value);
+        transition(image,sr,sc+1,rows,cols,newColor,value);
+        transition(image,sr,sc-1,rows,cols,newColor,value);
+    }
+}
