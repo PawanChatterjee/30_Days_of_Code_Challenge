@@ -20,7 +20,7 @@ class Solution
     }
     public static void transition(int[][]image, int sr,int sc,int rows,int cols, int newColor,int value)
     {
-        if(sr<0||sc<0||sr>=rows||sc>=cols||image[sr][sc]!=value)
+        if(sr<0||sc<0||sr>=rows||sc>=cols||image[sr][sc]!=value) 
         {
             return;
         }
