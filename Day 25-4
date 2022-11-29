@@ -1,0 +1,48 @@
+//Day 25/100
+//Problem - Minimum Number of Steps to Make Two Strings Anagram (Medium)
+//Platform - LeetCode
+//Problem Code - 1347
+//Approach - Using HashMap and Set
+//Time Complexity - O(n)
+//Space Complexity - O(1)
+
+//JAVA Code :-
+
+class Solution {
+    public int minSteps(String s, String t) {
+        HashMap<Character,Integer> map=new HashMap();
+        int count=0;
+        for(int i=0;i<s.length();i++)
+        {
+            char ch=s.charAt(i);
+            if(map.containsKey(ch))
+            {
+                map.put(ch,map.get(ch)+1);
+            }
+            else
+            {
+                map.put(ch,1);
+            }
+        }
+        for(int i=0;i<t.length();i++)
+        {
+            char ch=t.charAt(i);
+            if(!map.containsKey(ch))
+            {
+                count++;
+            }
+            else{
+                map.put(ch,map.get(ch)-1);
+            }
+        }
+        Set<Character> keys=map.keySet();
+        for(Character key:keys)
+        {
+            if(map.get(key)!=0)
+            {
+                count=count+Math.abs(map.get(key));
+            }
+        }
+        return count/2;
+    }
+}
