@@ -2,7 +2,7 @@
 //Problem - Check if the Sentence Is Pangram (Easy)
 //Problem Code - 1832
 //Platform - LeetCode
-//Approach - Using HashMap and Set
+//Approach - Using HashSet
 //Time Complexity - O(n)
 //Space Complexity - O(1) 
 
@@ -14,20 +14,15 @@ class Solution {
         {
             return false;
         }
-        HashMap<Character,Integer> map=new HashMap();
+        HashSet<Character> set=new HashSet();
         for(int i=0;i<sentence.length();i++)
         {
-            if(map.containsKey(sentence.charAt(i)))
-            {
-                map.put(sentence.charAt(i),map.get(sentence.charAt(i))+1);
-            }
-            else
-            {
-                map.put(sentence.charAt(i),1);
-            }
+           if(!set.contains(sentence.charAt(i)))
+           {
+               set.add(sentence.charAt(i));
+           }
         }
-        Set<Character> keys=map.keySet();
-        if(keys.size()==26)
+        if(set.size()==26)
         {
             return true;
         }
