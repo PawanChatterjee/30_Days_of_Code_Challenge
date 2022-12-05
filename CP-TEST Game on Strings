@@ -1,0 +1,41 @@
+//Problem - Game on Strings
+//Platform - Programming Pathshala
+//Date - 5th December, 2022
+
+//JAVA Code:-
+
+import java.util.*;
+public class Game_On_Strings
+{
+    public static void main(String[] args)
+    {
+        Scanner in=new Scanner(System.in);
+        String str=in.next();
+        String pattern=in.next();
+        int max_char_same=0;
+        int min_replacement=0;
+        for(int i=0;i<=str.length()-pattern.length();i++)
+        {
+            int same_char=0;
+            int replacement=0;
+            for(int j=i;j<i+pattern.length();j++)
+            {
+                if(str.charAt(j)==pattern.charAt(j-i))
+                {
+                    same_char++;
+                }
+                else
+                {
+                    replacement++;
+                }
+            }
+            if(same_char>max_char_same)
+            {
+                max_char_same=same_char;
+                min_replacement=replacement;
+            }
+        }
+        System.out.println("Maximum Same Character = "+max_char_same);
+        System.out.println("Minimum Character Replacement = "+min_replacement);
+    }
+}
