@@ -1,0 +1,51 @@
+//Problem - Head Count
+//Platform - Programming Pathshaala
+//Date - 5th December, 2022
+
+//JAVA Solution :-
+
+import java.util.*;
+public class Head_Count
+{
+    public static void main(String[] args)
+    {
+        Scanner in=new Scanner(System.in);
+        //Number of Array Values
+        int range=in.nextInt();
+        //Initialising the Heights Array
+        int heights[]=new int[range];
+        //Initialising the Vision Array
+        int vision[]=new int[range];
+        //Getting Values in the Heights Array
+        for(int i=0;i<range;i++)
+        {
+            heights[i]=in.nextInt();
+        }
+        for(int i=0;i<range;i++)
+        {
+            int count=0; //To Count Number of People That Can Be Seen on the Right
+            int max=Integer.MIN_VALUE;
+            for(int j=i+1;j<range;j++)
+            {
+                if(heights[i]<heights[j])
+                {
+                    count++;
+                    break;
+                }
+                else if(heights[i]>heights[j] && max<heights[j])
+                {
+                    count++;
+                    max=heights[j];
+                }
+            }
+            vision[i]=count;
+        }
+        int queries=in.nextInt();
+        while(queries>0)
+        {
+            int query=in.nextInt();
+            System.out.println(vision[query-1]);
+            queries--;
+        }
+    }
+}
