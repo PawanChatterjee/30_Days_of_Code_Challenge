@@ -1,6 +1,6 @@
-# 100_Days_of_Code_Challenge
+# 30_Days_of_Code_Challenge
 
-Intermittent coding leads you nowhere. Consistency is, undoubtedly, the key to a successful coding career. This repository contains 100+ Leetcode questions (Easy + Medium + Hard) that I will be solving over a period of 100 days. Hope this repository helps your coding journey. 
+Intermittent coding leads you nowhere. Consistency is, undoubtedly, the key to a successful coding career. This repository contains 50+ Leetcode questions (Easy + Medium + Hard) that I will be solving over a period of 30 days. Hope this repository helps your coding journey. 
 
 My Leetcode Profile : https://leetcode.com/pawan_chatterjee/
  
